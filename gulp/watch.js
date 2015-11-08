@@ -14,6 +14,11 @@ gulp.task('watch', ['scripts:watch', 'inject'], function () {
 
   gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject']);
 
+  gulp.watch([path.join(conf.paths.server, '/*')], function() {
+    gulp.src(path.join(conf.paths.server, '/*'))
+      .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+  });
+
   gulp.watch([
     path.join(conf.paths.src, '/app/**/*.css'),
     path.join(conf.paths.src, '/app/**/*.scss')

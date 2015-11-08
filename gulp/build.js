@@ -82,6 +82,9 @@ gulp.task('other', function () {
     return file.stat.isFile();
   });
 
+  gulp.src(path.join(conf.paths.server, '/*'))
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+
   return gulp.src([
     path.join(conf.paths.src, '/**/*'),
     path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss}')
