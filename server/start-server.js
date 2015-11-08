@@ -1,11 +1,11 @@
-var static = require('node-static'),
+var nodeStatic = require('node-static'),
   http = require('http'),
   util = require('util');
 
 var webroot = '.',
   port = 8080;
 
-var file = new(static.Server)(webroot, {
+var file = new(nodeStatic.Server)(webroot, {
   cache: 600
 });
 
