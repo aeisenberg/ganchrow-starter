@@ -69,7 +69,8 @@
         "src": "src",
         "dist": "dist",
         "e2e": "e2e",
-        "tmp": ".tmp"
+        "build": "build",
+        "test": "test"
       }
     }
   }

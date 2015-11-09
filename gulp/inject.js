@@ -11,16 +11,16 @@ var _ = require('lodash');
 
 gulp.task('inject', ['scripts', 'styles'], function () {
   var injectStyles = gulp.src([
-    path.join(conf.paths.tmp, '/serve/app/**/*.css'),
-    path.join('!' + conf.paths.tmp, '/serve/app/vendor.css')
+    path.join(conf.paths.build, '/serve/app/**/*.css'),
+    path.join('!' + conf.paths.build, '/serve/app/vendor.css')
   ], { read: false });
 
   var injectScripts = gulp.src([
-    path.join(conf.paths.tmp, '/serve/app/**/*.module.js')
+    path.join(conf.paths.build, '/serve/app/**/*.module.js')
   ], { read: false });
 
   var injectOptions = {
-    ignorePath: [conf.paths.src, path.join(conf.paths.tmp, '/serve')],
+    ignorePath: [conf.paths.src, path.join(conf.paths.build, '/serve')],
     addRootSlash: false
   };
 
@@ -28,5 +28,5 @@ gulp.task('inject', ['scripts', 'styles'], function () {
     .pipe($.inject(injectStyles, injectOptions))
     .pipe($.inject(injectScripts, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve')));
+    .pipe(gulp.dest(path.join(conf.paths.build, '/serve')));
 });

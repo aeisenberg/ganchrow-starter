@@ -1,3 +1,4 @@
+'use strict';
 /**
  * @todo Complete the test
  * This example is not perfect.

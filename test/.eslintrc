@@ -2,8 +2,7 @@
   "plugins": ["angular"],
   "env": {
     "es6": true,
-    "node": false,
-    "browser": true
+    "jasmine": true
   },
   "ecmaFeatures": {
     "modules": true

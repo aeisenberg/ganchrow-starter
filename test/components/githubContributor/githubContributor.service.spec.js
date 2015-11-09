@@ -1,3 +1,4 @@
+'use strict';
 describe('service githubContributor', () => {
   beforeEach(angular.mock.module('ganchrowStarter'));
 

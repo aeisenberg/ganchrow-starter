@@ -1,3 +1,4 @@
+'use strict';
 describe('controllers', () => {
   let vm;
 

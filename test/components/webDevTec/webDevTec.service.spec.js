@@ -1,3 +1,5 @@
+'use strict';
+
 describe('service webDevTec', () => {
   beforeEach(angular.mock.module('ganchrowStarter'));
 
