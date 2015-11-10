@@ -7,7 +7,9 @@
 				"node_modules",
 				"build",
 				"bower_components",
-				"coverage"
+				"coverage",
+				"dist",
+        "archives"
 			],
 			"path": "."
 		}
@@ -17,19 +19,11 @@
 		"detect_indentation": false,
 		"highlight_line": true,
 		"indent_to_bracket": false,
+		"lint_on_edit": true,
+		"lint_on_edit_timeout": 1,
+		"lint_on_load": false,
+		"lint_on_save": false,
 		"tab_size": 2,
-		"translate_tabs_to_spaces": true,
-	
-	  // Automatically lint on edit (Sublime Text 3 only).
-	  "lint_on_edit": true,
-
-	  // Configurable duration before re-linting.
-	  "lint_on_edit_timeout": 1,
-
-	  // Automatically lint when a file is loaded.
-	  "lint_on_load": false,
-
-	  // Automatically lint when a file is saved.
-	  "lint_on_save": false
+		"translate_tabs_to_spaces": true
 	}
 }

@@ -14,7 +14,8 @@ exports.paths = {
   build: 'build',
   e2e: 'e2e',
   test: 'test',
-  server: 'server'
+  server: 'server',
+  archives: 'archives'
 };
 
 /**
