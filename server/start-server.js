@@ -1,30 +1,40 @@
-var nodeStatic = require('node-static'),
-  http = require('http'),
-  util = require('util');
+'use strict';
 
-var webroot = '.',
-  port = 8080;
+let nodeStatic = require('node-static'),
+  http = require('http');
 
-var file = new(nodeStatic.Server)(webroot, {
-  cache: 600
-});
+let webroot = '.',
+  port = findPort();
+
+let fileServer = new(nodeStatic.Server)(webroot);
 
 http.createServer(function(req, res) {
-  req.addListener('end', function() {
-    file.serve(req, res, function(err, result) {
-      if (err) {
-        console.error('Error serving %s - %s', req.url, err.message);
-        if (err.status === 404 || err.status === 500) {
-          file.serveFile(util.format('/%d.html', err.status), err.status, {}, req, res);
-        } else {
-          res.writeHead(err.status, err.headers);
-          res.end();
-        }
-      } else {
-        console.log('%s - %s', req.url, res.message);
-      }
-    });
+  let eventEmitter;
+  if (req.url === '/') {
+    eventEmitter = fileServer.serveFile('/index.html', 200, {}, req, res);
+  } else {
+    eventEmitter = fileServer.serve(req, res);
+  }
+  eventEmitter.addListener('success', function() {
+    console.log(req.url);
+  });
+
+  eventEmitter.addListener('error', function (err) {
+    console.error('Error serving %s - %s', req.url, err.message);
+    res.writeHead(err.status, err.headers);
+    res.end();
   });
 }).listen(port);
 
-console.log('node-static running at http://localhost:%d', port);
+console.log('Ganchrow starter running at http://localhost:%d', port);
+
+function findPort() {
+  let args = process.argv, port;
+  for(let i = 0; i < args.length; i++) {
+  debugger;
+    if (args[i] === '--port' || args[i] === '-p') {
+      port = Number.parseInt(args[i+1]);
+    }
+  }
+  return port || 8080;
+}
