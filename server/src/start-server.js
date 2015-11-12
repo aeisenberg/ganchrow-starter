@@ -31,7 +31,6 @@ console.log('Ganchrow starter running at http://localhost:%d', port);
 function findPort() {
   let args = process.argv, port;
   for(let i = 0; i < args.length; i++) {
-  debugger;
     if (args[i] === '--port' || args[i] === '-p') {
       port = Number.parseInt(args[i+1]);
     }

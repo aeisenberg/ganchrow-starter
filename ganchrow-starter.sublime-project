@@ -5,11 +5,8 @@
 			"folder_exclude_patterns":
 			[
 				"node_modules",
-				"build",
-				"bower_components",
-				"coverage",
-				"dist",
-        "archives"
+				"target",
+				"bower_components"
 			],
 			"path": "."
 		}

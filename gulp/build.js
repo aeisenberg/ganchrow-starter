@@ -95,8 +95,16 @@ gulp.task('other', function () {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
+gulp.task('clean-all', function () {
+  return $.del([path.join(conf.paths.target, '/')]);
+});
+
 gulp.task('clean', function () {
-  return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.build, '/')]);
+  return $.del(
+    [path.join(conf.paths.build, '/'),
+     path.join(conf.paths.dist, '/'),
+     path.join(conf.paths.coverage, '/')]
+  );
 });
 
 gulp.task('zip', function () {
@@ -105,4 +113,6 @@ gulp.task('zip', function () {
     .pipe(gulp.dest(conf.paths.archives));
 });
 
-gulp.task('build', ['html', 'fonts', 'other', 'zip']);
+gulp.task('build', ['html', 'fonts', 'other'], function() {
+  gulp.start('zip');
+});

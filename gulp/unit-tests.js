@@ -2,6 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
+var nodeunit = require('gulp-nodeunit');
 var conf = require('./conf');
 
 var karma = require('karma');
@@ -49,4 +50,14 @@ gulp.task('test', ['scripts:test'], function(done) {
 
 gulp.task('test:auto', ['scripts:test-watch'], function(done) {
   runTests(false, done);
+});
+
+gulp.task('test:server', function() {
+  gulp.src(path.join(conf.paths.serverTest, '/**/*.test.js'))
+    .pipe(nodeunit({
+      reporter: 'junit',
+      reporterOptions: {
+        output: conf.paths.testReports
+      }
+    }));  
 });

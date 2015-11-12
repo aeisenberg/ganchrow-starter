@@ -1,9 +1,7 @@
 node_modules/
 bower_components/
-coverage/
 .sass-cache/
 .idea/
-build/
-dist/
+target/
 ganchrow-starter.sublime-workspace
 TODO

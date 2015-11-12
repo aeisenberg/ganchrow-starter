@@ -4,9 +4,9 @@
     "es6": true
   },
   "ecmaFeatures": {
-    "modules": true
+    "modules": false
   },
   "rules": {
-    "no-console": false
+    "no-console": 0
   }
 }
