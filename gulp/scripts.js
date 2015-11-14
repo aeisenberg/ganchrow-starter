@@ -24,17 +24,24 @@ function webpackWrapper(watch, test, callback) {
   }
 
   var webpackChangeHandler = function(err, stats) {
-    if(err) {
-      conf.errorHandler('Webpack')(err);
-    }
     $.util.log(stats.toString({
       colors: $.util.colors.supportsColor,
       chunks: false,
       hash: false,
       version: false
     }));
+
+    // eslint error show up in stats.errors, not err
+    if (err || stats.hasErrors()) {
+      if (err) {
+        conf.errorHandler('Webpack')(err);
+      }
+      if (!watch) {
+        process.exit(-1);
+      }
+    }
     browserSync.reload();
-    if(watch) {
+    if (watch) {
       watch = false;
       callback();
     }
