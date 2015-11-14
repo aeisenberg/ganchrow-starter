@@ -11,7 +11,7 @@ var gutil = require('gulp-util');
 var target = 'target';
 exports.paths = {
   src: 'src',
-  e2e: 'e2e',
+  protractor: 'protractor',
   test: 'test',
   server: 'server/src',
   serverTest: 'server/test',

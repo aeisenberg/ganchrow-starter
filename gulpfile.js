@@ -13,5 +13,5 @@ wrench.readdirSyncRecursive('./gulp').filter(function(file) {
 });
 
 gulp.task('default', ['clean', 'test', 'test:server'], function () {
-  gulp.start('build');
+  gulp.start('build', 'protractor');
 });

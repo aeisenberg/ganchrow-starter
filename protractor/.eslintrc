@@ -1,0 +1,15 @@
+{
+  "plugins": ["angular"],
+  "env": {
+    "es6": true,
+    "jasmine": true,
+    "protractor": true
+  },
+  "ecmaFeatures": {
+    "modules": true
+  },
+  "globals": {
+    "module": true,
+    "inject": true
+  }
+}

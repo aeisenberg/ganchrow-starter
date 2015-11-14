@@ -68,7 +68,7 @@
       "paths": {
         "src": "src",
         "dist": "dist",
-        "e2e": "e2e",
+        "protractor": "protractor",
         "build": "build",
         "test": "test"
       }
